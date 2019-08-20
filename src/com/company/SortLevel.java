@@ -36,13 +36,13 @@ public class SortLevel {
 
     static void InsertionSortStep( int[] array, int step, int i )
     {
+        int tmp;
         for(int j = i; j<array.length; j = j+step){
-            for (int k = 0; k<j; k++){
-                if(array[j]<array[k]){
-                    int tmp = array[j];
+            for (int k = j; k<array.length; k = k+step){
+                if(array[j] > array[k]){
+                    tmp = array[j];
                     array[j] = array[k];
                     array[k] = tmp;
-                    //return;
                 }
             }
         }

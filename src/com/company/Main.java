@@ -13,22 +13,28 @@ public class Main {
 
 
         int[] arr =  {7,6,5,4,3,2,1};
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.println();
+        print(arr);
         SortLevel.InsertionSortStep(arr, 3, 0);
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        print(arr);
+        SortLevel.InsertionSortStep(arr, 3, 1);
+        print(arr);
+        SortLevel.InsertionSortStep(arr, 3, 2);
+        print(arr);
+        SortLevel.InsertionSortStep(arr, 3, 3);
+        print(arr);
         System.out.println();
-
 
         int[]arr2 = {1,6,5,4,3,2,7};
+        print(arr2);
         SortLevel.InsertionSortStep(arr2, 3, 1);
-        System.out.println();
+        print(arr2);
 
     }
-
-
+    public static void print(int[] a)
+    {
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i] + " ");
+        }
+        System.out.println();
+    }
 }
