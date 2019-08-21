@@ -52,20 +52,15 @@ public class SortLevel {
     public static ArrayList KnuthSequence(int array_size )
     {
         ArrayList list = new ArrayList();
-        int i = 0, tmp = N(i);
+        int i = 1, tmp = (int)(Math.pow(3,i)-1)/2;
         while(tmp < array_size){
             i++;
             list.add(0,tmp);
-            tmp = N(i);
+            tmp = (int)(Math.pow(3,i)-1)/2;
         }
         return list;
     }
 
-    static int N(int i)
-    {
-        if(i == 0) return 1;
-        else return (3*N(i-1)+1);
-    }
 
     public static void ShellSort(int[] array)
     {
