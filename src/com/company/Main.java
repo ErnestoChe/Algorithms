@@ -13,21 +13,26 @@ public class Main {
 
 
         int[] arr =  {7,6,5,4,3,2,1};
-        print(arr);
+        //print(arr);
         SortLevel.InsertionSortStep(arr, 3, 0);
-        print(arr);
+        //print(arr);
         SortLevel.InsertionSortStep(arr, 3, 1);
-        print(arr);
+        //print(arr);
         SortLevel.InsertionSortStep(arr, 3, 2);
-        print(arr);
+        //print(arr);
         SortLevel.InsertionSortStep(arr, 3, 3);
-        print(arr);
+        //print(arr);
         System.out.println();
 
         int[]arr2 = {1,6,5,4,3,2,7};
-        print(arr2);
+        //print(arr2);
         SortLevel.InsertionSortStep(arr2, 3, 1);
-        print(arr2);
+        //print(arr2);
+
+        int[]arr3 = {1,3,4,6,5,2,8,7,9,10,15,21,56,0,16};
+        print(arr3);
+        SortLevel.ShellSort(arr3);
+        print(arr3);
 
     }
     public static void print(int[] a)

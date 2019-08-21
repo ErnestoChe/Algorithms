@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class SortLevel {
 
     public static void SelectionSortStep( int array[], int i )
@@ -44,6 +46,33 @@ public class SortLevel {
                     array[j] = array[k];
                     array[k] = tmp;
                 }
+            }
+        }
+    }
+    public static ArrayList KnuthSequence(int array_size )
+    {
+        ArrayList list = new ArrayList();
+        int i = 0, tmp = N(i);
+        while(tmp < array_size){
+            i++;
+            list.add(0,tmp);
+            tmp = N(i);
+        }
+        return list;
+    }
+
+    static int N(int i)
+    {
+        if(i == 0) return 1;
+        else return (3*N(i-1)+1);
+    }
+
+    public static void ShellSort(int[] array)
+    {
+        ArrayList list = KnuthSequence(array.length);
+        for (Object i : list) {
+            for (int j = 0; j < (int) i; j++) {
+                InsertionSortStep(array, (int) i, j);
             }
         }
     }
