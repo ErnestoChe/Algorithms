@@ -52,11 +52,11 @@ public class SortLevel {
     public static ArrayList KnuthSequence(int array_size )
     {
         ArrayList list = new ArrayList();
-        int i = 1, tmp = (int)(Math.pow(3,i)-1)/2;
-        while(tmp < array_size){
+        int i = 0, tmp = 3 * i + 1;
+        while(tmp <= array_size){
             i++;
             list.add(0,tmp);
-            tmp = (int)(Math.pow(3,i)-1)/2;
+            tmp = 3 * tmp + 1;
         }
         return list;
     }

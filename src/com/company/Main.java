@@ -29,7 +29,7 @@ public class Main {
         SortLevel.InsertionSortStep(arr2, 3, 1);
         //print(arr2);
 
-        System.out.println(SortLevel.KnuthSequence(1200));
+        System.out.println(SortLevel.KnuthSequence(4));
 
         int[]arr3 = {1,3,4,6,5,2,8,7,9,10,15,21,56,0,16};
         print(arr3);
