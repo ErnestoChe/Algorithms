@@ -1,17 +1,23 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-        /*int[] a = {9,1,5,2,8,3,0,10,7,5};
-        //SortLevel.SelectionSortStep(a, 3);
-        boolean b = false;
-        while(!b){
-            b = SortLevel.BubbleSortStep(a);
-        }
-        System.out.println();*/
+        testChunk();
+    }
 
-
+    public static void testChunk()
+    {
+        int[] arr ={7,5,6,4,3,1,2};
+        print(arr);
+        System.out.println(SortLevel.ArrayChunk(arr));
+        print(arr);
+    }
+    public void test(){
         int[] arr =  {7,6,5,4,3,2,1};
         //print(arr);
         SortLevel.InsertionSortStep(arr, 3, 0);
@@ -35,12 +41,19 @@ public class Main {
         print(arr3);
         SortLevel.ShellSort(arr3);
         print(arr3);
-
     }
     public static void print(int[] a)
     {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
+        }
+        System.out.println();
+    }
+
+    public static void print(String[] a)
+    {
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
         }
         System.out.println();
     }
