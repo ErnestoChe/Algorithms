@@ -13,9 +13,13 @@ public class Main {
     public static void testChunk()
     {
         int[] arr ={7,5,6,4,3,1,2};
+        int[] arr2 = {3,1,2};
         print(arr);
         System.out.println(SortLevel.ArrayChunk(arr));
         print(arr);
+        print(arr2);
+        SortLevel.ArrayChunk(arr2);
+        print(arr2);
     }
     public void test(){
         int[] arr =  {7,6,5,4,3,2,1};
