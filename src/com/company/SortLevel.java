@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SortLevel {
 
@@ -73,11 +74,8 @@ public class SortLevel {
 
     public static int ArrayChunk( int[] M )
     {
-        //System.out.println("start");
         int N = M[M.length/2];
-        //int i1 = 0, i2 = M.length-1;
         while(true){
-            //print(M);
             int i1 = 0, i2 = M.length-1;
             while(M[i1]<N) i1++;
             while(M[i2]>N) i2--;
@@ -85,7 +83,6 @@ public class SortLevel {
                 int tmp = M[i1];
                 M[i1] = M[i2];
                 M[i2] = tmp;
-                //print(M);
                 N = M[M.length/2];
                 continue;
             }
@@ -93,15 +90,20 @@ public class SortLevel {
                 int tmp = M[i1];
                 M[i1] = M[i2];
                 M[i2] = tmp;
-                return M.length/2;
+                return i1;
             }
-            //System.out.println("6");
             int tmp = M[i1];
             M[i1] = M[i2];
             M[i2] = tmp;
-            //print(M);
         }
 
+    }
+
+    public static void QuickSort(int[]array, int left, int right)
+    {
+        if(left!=right){
+            int N = ArrayChunk(array);
+        }
     }
     public static void print(int[] a)
     {
