@@ -28,8 +28,6 @@ public class Main {
 
     }
 
-
-
     public static void test()
     {
         int[] arr = new int[20];
@@ -46,10 +44,17 @@ public class Main {
     }
     public static void testQuick()
     {
-        int[]arr3 = init(50, 10000);
+        int[]arr3 = init(20, 10000);
         print(arr3);
-        SortLevel.QuickSort(arr3, 0, arr3.length);
+        SortLevel.QuickSort(arr3, 0, arr3.length-1);
         print(arr3);
+
+        for (int i =0;i<arr3.length-1;i++){
+            if (arr3[i] > arr3[i+1]) {
+                System.out.println("wrong");
+                System.out.println(i);
+            }
+        }
     }
     public static void print(int[] a)
     {
@@ -95,5 +100,10 @@ public class Main {
             System.out.println(a[i]);
         }
         System.out.println();
+    }
+
+    public static void occur()
+    {
+
     }
 }
