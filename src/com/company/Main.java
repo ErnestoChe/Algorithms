@@ -2,55 +2,53 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        //testChunk();
         testQuick();
+        //test();
     }
 
     public static void testChunk()
     {
-        int[] arr ={1,3,4,6,5,2,8};
-        print(arr);
-        System.out.println(SortLevel.ArrayChunk(arr));
-        print(arr);
-        System.out.println(SortLevel.ArrayChunk(arr));
-        print(arr);
+        Random rnd = new Random();
+        int[]arr = new int[20];
+        for (int i = 0; i < 20; i++) {
+            arr[i] = rnd.nextInt(100);
+        }
+        print(arr, 5, 15);
+        int n = SortLevel.ArrayChunk(arr, 5, 15);
+        System.out.println("n = " + n + " [n] = " + arr[n]);
+        System.out.println("first chunk");
+        print(arr, 5, 15);
 
     }
-    public void test()
+
+
+
+    public static void test()
     {
-        int[] arr =  {7,6,5,4,3,2,1};
-        //print(arr);
-        SortLevel.InsertionSortStep(arr, 3, 0);
-        //print(arr);
-        SortLevel.InsertionSortStep(arr, 3, 1);
-        //print(arr);
-        SortLevel.InsertionSortStep(arr, 3, 2);
-        //print(arr);
-        SortLevel.InsertionSortStep(arr, 3, 3);
-        //print(arr);
-        System.out.println();
-
-        int[]arr2 = {1,6,5,4,3,2,7};
-        //print(arr2);
-        SortLevel.InsertionSortStep(arr2, 3, 1);
-        //print(arr2);
-
-        System.out.println(SortLevel.KnuthSequence(4));
-
-        int[]arr3 = {1,3,4,6,5,2,8,7,9,10,15,21,56,0,16};
-        print(arr3);
-        SortLevel.ShellSort(arr3);
-        print(arr3);
+        int[] arr = new int[20];
+        Random r = new Random();
+        for (int i = 0; i < 20; i++) {
+            if(i<10) arr[i] = r.nextInt(100)+100;
+            if(i>=10) arr[i] = r.nextInt(100);
+        }
+        print(arr);
+        int a = SortLevel.ArrayChunk(arr,0,19);
+        System.out.println(a);
+        System.out.println("[n] = " + arr[a]);
+        print(arr);
     }
     public static void testQuick()
     {
-        int[]arr3 = {1,3,4,6,5,2,8, 7,9,10,15,21,56,0,16};
+        int[]arr3 = init(50, 10000);
         print(arr3);
-        SortLevel.QuickSort(arr3, 0, arr3.length-1);
+        SortLevel.QuickSort(arr3, 0, arr3.length);
         print(arr3);
     }
     public static void print(int[] a)
@@ -60,6 +58,37 @@ public class Main {
         }
         System.out.println();
     }
+
+    public static void print(int[] a, int i1, int i2)
+    {
+        for (int i = 0; i < a.length; i++) {
+            if(i == i1) System.out.print("|" + a[i] + "\t");
+            if(i == i2) System.out.print(a[i] + "|" + "\t");
+
+            System.out.print(a[i] + "\t");
+        }
+        System.out.println();
+    }
+
+    public static void print(int[] a, int opor)
+    {
+        for (int i = 0; i < a.length; i++) {
+            if(i == opor) System.out.print("<"+a[i] +">"+ "\t");
+            else System.out.print(a[i] + "\t");
+        }
+        System.out.println();
+    }
+
+    public static int[] init(int size, int bound)
+    {
+        int[] arr = new int[size];
+        Random r = new Random();
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = r.nextInt(bound);
+        }
+        return arr;
+    }
+
     public static void print(String[] a)
     {
         for (int i = 0; i < a.length; i++) {

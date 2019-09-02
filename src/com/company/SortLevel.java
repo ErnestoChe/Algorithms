@@ -96,13 +96,43 @@ public class SortLevel {
             M[i1] = M[i2];
             M[i2] = tmp;
         }
-
     }
+
+
+    public static int ArrayChunk( int[] M, int left, int right)
+    {
+        int N = M[(left+right)/2];
+        while(true){
+            int i1 = left, i2 = right-1;
+            while(M[i1]<N) i1++;
+            while(M[i2]>N) i2--;
+            if(i1 == i2 - 1 && M[i1]>M[i2]){
+                int tmp = M[i1];
+                M[i1] = M[i2];
+                M[i2] = tmp;
+                N = M[(left+right)/2];
+                continue;
+            }
+            if(i1 == i2 || (i2 == i1 - 1 && M[i1]<M[i2])){
+                int tmp = M[i1];
+                M[i1] = M[i2];
+                M[i2] = tmp;
+                return i1;
+            }
+            int tmp = M[i1];
+            M[i1] = M[i2];
+            M[i2] = tmp;
+        }
+    }
+
 
     public static void QuickSort(int[]array, int left, int right)
     {
         if(left!=right){
-            int N = ArrayChunk(array);
+            int N = ArrayChunk(array, left, right);
+            print(array);
+            QuickSort(array, left, N);
+            QuickSort(array, N+1, right);
         }
     }
     public static void print(int[] a)
