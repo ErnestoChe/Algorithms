@@ -129,8 +129,7 @@ public class SortLevel {
     public static void QuickSort(int[]array, int left, int right)
     {
         if(left!=right){
-            int N = ArrayChunk(array, left, right);
-            print(array);
+            int N = ArrayChunk(array, left, right);      
             QuickSort(array, left, N);
             QuickSort(array, N+1, right);
         }
