@@ -11,6 +11,7 @@ public class Main {
         //testChunk();
         testQuick();
         //test();
+
     }
 
     public static void testChunk()
@@ -44,17 +45,28 @@ public class Main {
     }
     public static void testQuick()
     {
-        int[]arr3 = init(20, 10000);
-        print(arr3);
-        SortLevel.QuickSort(arr3, 0, arr3.length-1);
-        print(arr3);
+        int mistakes = 0;
+        for (int j = 0; j < 100; j++) {
+            System.out.println(j);
+            int localmist = 0;
+            int[]arr3 = init(20, 10000);
+            if(isOccur(arr3))continue;
+            print(arr3);
+            SortLevel.QuickSort(arr3, 0, arr3.length-1);
+            print(arr3);
 
-        for (int i =0;i<arr3.length-1;i++){
-            if (arr3[i] > arr3[i+1]) {
-                System.out.println("wrong");
-                System.out.println(i);
+            for (int i =0;i<arr3.length-1;i++){
+                if (arr3[i] > arr3[i+1]) {
+                    System.out.println("wrong");
+                    mistakes++;
+                    localmist++;
+                    System.out.println(i);
+                }
             }
+            System.out.println(localmist);
         }
+        System.out.println("mist " + mistakes);
+
     }
     public static void print(int[] a)
     {
@@ -102,8 +114,15 @@ public class Main {
         System.out.println();
     }
 
-    public static void occur()
+    public static boolean isOccur(int[] arr)
     {
-
+        for (int i =0; i<arr.length-1; i++){
+            for (int j = i+1; j<arr.length; j++){
+                if (arr[i] == arr[j]) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

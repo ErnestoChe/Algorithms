@@ -103,7 +103,7 @@ public class SortLevel {
     {
         int N = M[(left+right)/2];
         while(true){
-            int i1 = left, i2 = right-1;
+            int i1 = left, i2 = right;
             while(M[i1]<N) i1++;
             while(M[i2]>N) i2--;
             if(i1 == i2 - 1 && M[i1]>M[i2]){
@@ -129,8 +129,10 @@ public class SortLevel {
     public static void QuickSort(int[]array, int left, int right)
     {
         if(left!=right){
-            int N = ArrayChunk(array, left, right);
-            print(array);
+            int N;
+            if(left>right){return;}else{ N = ArrayChunk(array, left, right);}
+            //int N = ArrayChunk(array, left, right);
+            //print(array);
             QuickSort(array, left, N);
             QuickSort(array, N+1, right);
         }
