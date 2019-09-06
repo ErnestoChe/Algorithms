@@ -1,15 +1,15 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         //testChunk();
+        Long t1 = System.nanoTime();
         testQuick();
+        Long t2 = System.nanoTime();
+        System.out.println(t2-t1);
         //test();
 
     }
@@ -46,12 +46,13 @@ public class Main {
     public static void testQuick()
     {
         int mistakes = 0;
-        for (int j = 0; j < 100; j++) {
+        for (int j = 0; j < 1000; j++) {
             System.out.println(j);
             int localmist = 0;
             int[]arr3 = init(20, 10000);
             if(isOccur(arr3))continue;
             print(arr3);
+            //SortLevel.QuickSortTailOptimization(arr3, 0, arr3.length-1);
             SortLevel.QuickSort(arr3, 0, arr3.length-1);
             print(arr3);
 

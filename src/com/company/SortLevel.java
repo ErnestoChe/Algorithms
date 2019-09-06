@@ -133,10 +133,25 @@ public class SortLevel {
             if(left>right){return;}else{ N = ArrayChunk(array, left, right);}
             //int N = ArrayChunk(array, left, right);
             //print(array);
-            QuickSort(array, left, N);
+            QuickSort(array, left, N-1);
             QuickSort(array, N+1, right);
         }
     }
+
+    public static void QuickSortTailOptimization( int[] array, int left, int right )
+    {
+        while(left<right){
+            int N = ArrayChunk(array, left, right);
+            if(N - left < right - N){
+                QuickSortTailOptimization(array, left, N-1);
+                left = N + 1;
+            }else{
+                QuickSortTailOptimization(array, N+1, right);
+                right = N-1;
+            }
+        }
+    }
+
     public static void print(int[] a)
     {
         for (int i = 0; i < a.length; i++) {
