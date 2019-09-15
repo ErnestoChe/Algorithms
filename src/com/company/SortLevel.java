@@ -152,6 +152,25 @@ public class SortLevel {
         }
     }
 
+    public static ArrayList KthOrderStatisticsStep(int[] Array, int L, int R, int k)
+    {
+        ArrayList list = new ArrayList();
+        int left = L, right = R;
+        while(true){
+            int mid = ArrayChunk(Array, left, right);
+
+            if(mid < k){
+                left = mid;
+            }else if(mid > k){
+                right = mid;
+            }else {
+                list.add(left);
+                list.add(right);
+                return list;
+            }
+        }
+    }
+
     public static void print(int[] a)
     {
         for (int i = 0; i < a.length; i++) {
