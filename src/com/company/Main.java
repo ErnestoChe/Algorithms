@@ -106,14 +106,15 @@ public class Main {
     }
 
     public static void testOrder(){
-        int arr[] = {781,603,794,729,705,67,930,360,796,773,747,73,481,248,736,753,113,884,580,438};
+        int arr[] = {781,603,794,729,705,930,360,796,773,747,73,481,248,736,753,113,884,580,438};
         print(arr);
-        for (int i = 10; i < 15; i++) {
+        for (int i = 3; i < 8; i++) {
             int[]r = arr;
-            System.out.println(SortLevel.nth(r, 0, arr.length-1, i));
+            ArrayList list = SortLevel.KthOrderStatisticsStep(r, 3, 13, i);
+            System.out.println(list);
         }
         SortLevel.QuickSort(arr, 0, arr.length-1);
-        //ArrayList list = SortLevel.KthOrderStatisticsStep(arr, 0, arr.length-1, 10);
+
         print(arr);
     }
 

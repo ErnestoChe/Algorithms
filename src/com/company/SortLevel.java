@@ -160,9 +160,9 @@ public class SortLevel {
             int mid = ArrayChunk(Array, left, right);
 
             if(mid < k){
-                left = mid;
+                left = mid+1;
             }else if(mid > k){
-                right = mid;
+                right = mid-1;
             }else {
                 list.add(left);
                 list.add(right);
