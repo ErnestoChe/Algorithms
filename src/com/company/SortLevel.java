@@ -157,7 +157,7 @@ public class SortLevel {
         ArrayList list = new ArrayList();
         int left = L, right = R;
         while(true){
-            int mid = ArrayChunk(Array, left, right);
+            int mid = /*ArrayChunk(Array, left, right);*/(left+right)/2;
 
             if(mid < k){
                 left = mid+1;
