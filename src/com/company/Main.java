@@ -9,6 +9,9 @@ public class Main {
         //testChunk();
         //testQuick();
         //test();
+        /*int[]a = {5,6,7,4,1,2,3};
+        SortLevel.ArrayChunk(a, 0 ,6);
+        print(a);*/
         testOrder();
     }
 
@@ -20,10 +23,10 @@ public class Main {
             arr[i] = rnd.nextInt(100);
         }
         print(arr, 5, 15);
-        int n = SortLevel.ArrayChunk(arr, 5, 15);
+        int n = SortLevel.ArrayChunk(arr, 0, 19);
         System.out.println("n = " + n + " [n] = " + arr[n]);
         System.out.println("first chunk");
-        print(arr, 5, 15);
+        print(arr);
 
     }
 
@@ -70,6 +73,7 @@ public class Main {
     public static void print(int[] a)
     {
         for (int i = 0; i < a.length; i++) {
+            if(i == a.length-1)System.out.print(a[i]);else
             System.out.print(a[i] + ",");
         }
         System.out.println();
@@ -106,16 +110,20 @@ public class Main {
     }
 
     public static void testOrder(){
-        int arr[] = {781,603,794,729,705,930,360,796,773,747,73,481,248,736,753,113,884,580,438};
+        int[] a = {5,6,7,4,1,2,3};
+        ArrayList list = SortLevel.KthOrderStatisticsStep(a, 0,6,0);
+        print(a);
+        System.out.println(list);
+        /*int arr[] = {781,603,794,729,705,930,360,796,773,747,73,481,248,736,753,113,884,580,438};
         print(arr);
         for (int i = 3; i < 8; i++) {
             int[]r = arr;
-            ArrayList list = SortLevel.KthOrderStatisticsStep(r, 3, 13, i);
+            ArrayList list = SortLevel.KthOrderStatisticsStep(r, 0, r.length-1, i);
             System.out.println(list);
         }
         SortLevel.QuickSort(arr, 0, arr.length-1);
 
-        print(arr);
+        print(arr);*/
     }
 
     public static void print(String[] a)
