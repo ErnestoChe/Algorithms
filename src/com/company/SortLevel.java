@@ -98,7 +98,6 @@ public class SortLevel {
         }
     }
 
-
     public static int ArrayChunk( int[] M, int left, int right)
     {
         int N = M[(left+right)/2];
@@ -170,6 +169,56 @@ public class SortLevel {
         list.add(L);
         list.add(R);
         return list;
+    }
+
+    public static ArrayList<Integer>MergeSort(ArrayList<Integer> array)
+    {
+        if(array.size()<2){
+            return array;
+        }
+        int mid = array.size()/2;
+        ArrayList<Integer> left_list = new ArrayList<>();
+        ArrayList<Integer> right_list = new ArrayList<>();
+
+        for (int i = 0; i < mid; i++) {
+            left_list.add(array.get(i));
+        }
+        System.out.println("left " + left_list);
+        for (int i = mid; i < array.size(); i++) {
+            right_list.add(array.get(i));
+        }
+        System.out.println("right " + right_list);
+
+        left_list = MergeSort(left_list);
+        right_list = MergeSort(right_list);
+
+        array = merge(left_list, right_list);
+        System.out.println("merged " + array);
+        return array;
+    }
+
+    public static ArrayList<Integer> merge(ArrayList<Integer> list1, ArrayList<Integer> list2){
+        ArrayList<Integer> res_list = new ArrayList<>();
+        int pos1 = 0, pos2 = 0, l1 = list1.size(), l2 = list2.size();
+        while(pos1 < l1 && pos2 < l2){
+            if(list1.get(pos1) < list2.get(pos2)){
+                res_list.add(list1.get(pos1));
+                pos1++;
+            }else{
+                res_list.add(list2.get(pos2));
+                pos2++;
+            }
+        }
+        if(pos1 < l1){
+            for (int i = pos1; i < list1.size(); i++) {
+                res_list.add(list1.get(i));
+            }
+        }else if(pos2 < l2){
+            for (int i = pos2; i < list2.size(); i++) {
+                res_list.add(list2.get(i));
+            }
+        }
+        return res_list;
     }
 
     public static void print(int[] a)

@@ -9,10 +9,9 @@ public class Main {
         //testChunk();
         //testQuick();
         //test();
-        /*int[]a = {5,6,7,4,1,2,3};
-        SortLevel.ArrayChunk(a, 0 ,6);
-        print(a);*/
-        testOrder();
+        //testOrder();
+        //testMerge();
+        testMergeSort();
     }
 
     public static void testChunk()
@@ -70,6 +69,49 @@ public class Main {
         System.out.println("mist " + mistakes);
 
     }
+
+    public static void testMergeSort()
+    {
+        int[] arr = {781,603,794,729,705,930,360,796,773,747,73,481,248,736,753,113,884,580,438};
+        ArrayList<Integer> list1 = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            list1.add(arr[i]);
+        }
+        System.out.println(list1);
+        ArrayList<Integer> sorted = SortLevel.MergeSort(list1);
+        System.out.println(sorted);
+    }
+
+    public static void testMerge()
+    {
+        /*int[] arr1 = {0,1,2,3,4};
+        int[] arr2 = {5,6,7,8,9};
+        ArrayList<Integer> list1 = new ArrayList<>();
+        ArrayList<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            list1.add(arr1[i]);
+            list2.add(arr2[i]);
+        }
+        ArrayList<Integer> test = SortLevel.merge(list1, list2);
+        System.out.println(test);*/
+
+        ArrayList<Integer> list1 = new ArrayList<>();
+        list1.add(603);
+        list1.add(781);
+        ArrayList<Integer> list2 = new ArrayList<>();
+        list2.add(729);
+        list2.add(794);
+        System.out.println(list1);
+        System.out.println(list2);
+
+        ArrayList<Integer> test = SortLevel.merge(list1, list2);
+        System.out.println(test);
+        System.out.println(test.size());
+        //ArrayList<Integer> test = SortLevel.MergeSort(list1);
+        //System.out.println(test);
+
+    }
+
     public static void print(int[] a)
     {
         for (int i = 0; i < a.length; i++) {
@@ -109,9 +151,10 @@ public class Main {
         return arr;
     }
 
+
     public static void testOrder(){
         int[] a = {5,6,7,4,1,2,3};
-        ArrayList list = SortLevel.KthOrderStatisticsStep(a, 0,6,0);
+        ArrayList list = SortLevel.KthOrderStatisticsStep(a, 0,6,3);
         print(a);
         System.out.println(list);
         /*int arr[] = {781,603,794,729,705,930,360,796,773,747,73,481,248,736,753,113,884,580,438};
