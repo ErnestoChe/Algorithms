@@ -183,17 +183,17 @@ public class SortLevel {
         for (int i = 0; i < mid; i++) {
             left_list.add(array.get(i));
         }
-        System.out.println("left " + left_list);
+        //System.out.println("left " + left_list);
         for (int i = mid; i < array.size(); i++) {
             right_list.add(array.get(i));
         }
-        System.out.println("right " + right_list);
+        //System.out.println("right " + right_list);
 
         left_list = MergeSort(left_list);
         right_list = MergeSort(right_list);
 
         array = merge(left_list, right_list);
-        System.out.println("merged " + array);
+        //System.out.println("merged " + array);
         return array;
     }
 

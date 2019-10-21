@@ -11,7 +11,15 @@ public class Main {
         //test();
         //testOrder();
         //testMerge();
-        testMergeSort();
+        //testMergeSort();
+        testKSORT();
+    }
+
+    public static void testKSORT(){
+        String test = "ff9";
+
+        System.out.println(ksort.checkFormat(test));
+        System.out.println(ksort.index(test));
     }
 
     public static void testChunk()
@@ -72,7 +80,7 @@ public class Main {
 
     public static void testMergeSort()
     {
-        int[] arr = {781,603,794,729,705,930,360,796,773,747,73,481,248,736,753,113,884,580,438};
+        int[] arr = {781,603,794,729,705,930,360,796,747,747,73,481,248,736,753,113,884,580,438};
         ArrayList<Integer> list1 = new ArrayList<>();
         for (int i = 0; i < arr.length; i++) {
             list1.add(arr[i]);
