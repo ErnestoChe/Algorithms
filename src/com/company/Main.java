@@ -12,7 +12,24 @@ public class Main {
         //testOrder();
         //testMerge();
         //testMergeSort();
-        testKSORT();
+        //testKSORT();
+        testBinSearch();
+    }
+
+    public static void testBinSearch(){
+        int[] arr = new int[20];
+        for (int i = 0; i < 20; i++) {
+            arr[i] = 2 * i;
+        }
+
+        BinarySearch bs = new BinarySearch(arr);
+
+        for (int i = 0; i < 15; i++) {
+            bs.Step(8);
+            System.out.println(bs.Left + " " + bs.Right);
+            System.out.println(bs.GetResult());
+        }
+
     }
 
     public static void testKSORT(){
