@@ -13,14 +13,31 @@ public class BinarySearch {
     }
 
     public void Step(int N) {
-        if (arr[(Left + Right) / 2] > N) {
-            Right = (Left + Right) / 2;
-        } else if (arr[(Left + Right) / 2] < N) {
-            Left = (Left + Right + 1) / 2;
-        } else if (arr[(Left + Right) / 2] == N) {
+        int mid = (Left + Right)/2;
+        if(arr[mid] < N){
+            Left = mid + 1;
+        }else if(arr[mid] > N){
+            Right = mid - 1;
+        }
+        if(arr[mid] == N){
             found = true;
-            Left = (Left + Right) / 2;
-            Right = (Left + Right) / 2;
+            Left = Right = mid;
+            return;
+        }
+        if(Left == Right){
+            if(arr[(Left + Right)/2] == N){
+                found = true;
+            }else found = false;
+            return;
+        }
+        if(Left > arr.length - 1 || Right > arr.length - 1){
+            found = false;
+            Right = Left = arr.length -1;
+            return;
+        }
+        if(Right < Left){
+            found = false;
+            Right = Left;
             return;
         }
     }

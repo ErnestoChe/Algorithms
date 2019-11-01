@@ -13,6 +13,7 @@ public class Main {
         //testMerge();
         //testMergeSort();
         //testKSORT();
+        System.out.println(5/2);
         testBinSearch();
     }
 
@@ -24,8 +25,8 @@ public class Main {
 
         BinarySearch bs = new BinarySearch(arr);
 
-        for (int i = 0; i < 15; i++) {
-            bs.Step(8);
+        for (int i = 0; i < 6; i++) {
+            bs.Step(9);
             System.out.println(bs.Left + " " + bs.Right);
             System.out.println(bs.GetResult());
         }
