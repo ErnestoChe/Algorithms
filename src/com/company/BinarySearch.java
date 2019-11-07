@@ -49,4 +49,34 @@ public class BinarySearch {
         }else return 0;
     }
 
+    public static boolean GallopingSearch(int[] n, int key){
+        int i = 1;
+        int index = (int)Math.pow(2, i) - 2 ;
+        while (true){
+            if(n[n.length-1] < key) return false;
+            if(n[index] == key){
+                return true;
+            }else if(n[index] < key){
+                i++;
+                index = (int)Math.pow(2, i) - 2;
+                if(index >= n.length-1){
+                    index = n.length-1;
+                }
+            }else if(n[index] > key){
+                //i++;
+                BinarySearch bs = new BinarySearch(n);
+                bs.Right = index;
+                bs.Left = (int)Math.pow(2, i-1) - 1;
+                while (bs.GetResult() == 0){
+                    bs.Step(key);
+                }
+                if(bs.GetResult() == 1){
+                    return true;
+                }else if(bs.GetResult() == -1){
+                    return false;
+                }
+            }
+        }
+    }
+
 }

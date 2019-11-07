@@ -3,6 +3,8 @@ package com.company;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.company.BinarySearch.GallopingSearch;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -13,8 +15,8 @@ public class Main {
         //testMerge();
         //testMergeSort();
         //testKSORT();
-        System.out.println(5/2);
-        testBinSearch();
+        //testBinSearch();
+        testGallop();
     }
 
     public static void testBinSearch(){
@@ -24,13 +26,31 @@ public class Main {
         }
 
         BinarySearch bs = new BinarySearch(arr);
-
-        for (int i = 0; i < 6; i++) {
-            bs.Step(9);
+        int i = 0;
+        while (bs.GetResult() == 0){
+            i++;
+            if(i>100)break;
+            bs.Step(41);
             System.out.println(bs.Left + " " + bs.Right);
-            System.out.println(bs.GetResult());
         }
+        System.out.println(bs.GetResult());
 
+    }
+
+    public static void testGallop(){
+        int[] arr = new int[20];
+        for (int i = 0; i < 20; i++) {
+            arr[i] = 5 * i;
+        }
+        //gall(arr,  7);
+        //gall(arr, 16);
+        //gall(arr,-2);
+        for (int i = 0; i < 20; i++) {
+            gall(arr,  2*i);
+        }
+    }
+    public static void gall(int[] arr, int i){
+        System.out.println(i + " " + GallopingSearch(arr, i));
     }
 
     public static void testKSORT(){
